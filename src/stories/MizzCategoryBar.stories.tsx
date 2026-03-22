@@ -4,27 +4,28 @@ import { MizzCategoryBar } from '../app/components/mizz/MizzCategoryBar';
 
 const chipCategories = [
   { value: 'all', label: 'Todos' },
-  { value: 'burger', label: 'Hambúrgueres' },
-  { value: 'pizza', label: 'Pizzas' },
-  { value: 'sushi', label: 'Sushi' },
-  { value: 'acai', label: 'Açaí' },
-  { value: 'drinks', label: 'Bebidas' },
-  { value: 'dessert', label: 'Sobremesas' },
+  { value: 'pratos', label: 'Pratos Principais' },
+  { value: 'entradas', label: 'Entradas' },
+  { value: 'bebidas', label: 'Bebidas' },
+  { value: 'sobremesas', label: 'Sobremesas' },
+  { value: 'combos', label: 'Combos' },
+  { value: 'acompanhamentos', label: 'Acompanhamentos' },
 ];
 
 const iconCategories = [
-  { value: 'burger', label: 'Burger', icon: '🍔' },
-  { value: 'pizza', label: 'Pizza', icon: '🍕' },
-  { value: 'sushi', label: 'Sushi', icon: '🍣' },
-  { value: 'acai', label: 'Açaí', icon: '🫐' },
-  { value: 'salad', label: 'Salada', icon: '🥗' },
-  { value: 'drink', label: 'Bebidas', icon: '🥤' },
-  { value: 'dessert', label: 'Doces', icon: '🍰' },
-  { value: 'coffee', label: 'Café', icon: '☕' },
+  { value: 'burger', label: 'Burger', icon: <span>🍔</span> },
+  { value: 'pizza', label: 'Pizza', icon: <span>🍕</span> },
+  { value: 'sushi', label: 'Sushi', icon: <span>🍣</span> },
+  { value: 'salada', label: 'Salada', icon: <span>🥗</span> },
+  { value: 'massa', label: 'Massa', icon: <span>🍝</span> },
+  { value: 'churrasco', label: 'Churrasco', icon: <span>🥩</span> },
+  { value: 'bebida', label: 'Bebidas', icon: <span>🍺</span> },
+  { value: 'sobremesa', label: 'Doces', icon: <span>🍰</span> },
+  { value: 'cafe', label: 'Café', icon: <span>☕</span> },
 ];
 
 const meta = {
-  title: 'Food & Delivery/CategoryBar',
+  title: 'Food Service/CategoryBar',
   component: MizzCategoryBar,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

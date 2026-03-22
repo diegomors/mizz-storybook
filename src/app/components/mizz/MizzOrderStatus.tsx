@@ -38,7 +38,7 @@ const defaultIcons: Record<string, React.ReactNode> = {
 
 /**
  * MizzOrderStatus - Timeline de status do pedido do Design System Mizz.
- * Usado para acompanhar pedidos em apps de delivery.
+ * Usado para acompanhar pedidos em food service (mesa → cozinha → pronto → servido).
  * Passos: completed, current, pending.
  */
 export const MizzOrderStatus = ({

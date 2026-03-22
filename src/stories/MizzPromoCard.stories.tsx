@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MizzPromoCard } from '../app/components/mizz/MizzPromoCard';
 
 const meta = {
-  title: 'Food & Delivery/PromoCard',
+  title: 'Food Service/PromoCard',
   component: MizzPromoCard,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],
@@ -13,26 +13,31 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    title: '20% OFF no primeiro pedido!',
-    description: 'Use o cupom e aproveite',
-    couponCode: 'BEMVINDO20',
+    title: 'Combo do dia com 20% OFF!',
+    description: 'Hambúrguer + Batata + Refrigerante',
+    couponCode: 'COMBO20',
     onClick: () => {},
   },
   decorators: [(Story) => <div className="w-96"><Story /></div>],
 };
 
-export const WithGradient: Story = {
+export const HappyHour: Story = {
   args: {
-    title: 'Frete grátis',
-    description: 'Em pedidos acima de R$ 50',
-    backgroundColor: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    title: 'Happy Hour',
+    description: 'Chopp em dobro das 17h às 20h',
     onClick: () => {},
   },
   render: (args) => (
     <div className="w-96">
       <MizzPromoCard
         {...args}
-        className="[background:linear-gradient(135deg,#667eea_0%,#764ba2_100%)]"
+        className="[background:linear-gradient(135deg,#f59e0b_0%,#d97706_100%)]"
+        icon={
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+            <path d="M8 2v4M16 2v4M6 6h12l-1 14H7L6 6z" />
+            <path d="M9 10c0 2 3 4 3 4s3-2 3-4" />
+          </svg>
+        }
       />
     </div>
   ),
@@ -43,22 +48,22 @@ export const PromoCarousel: Story = {
   render: () => (
     <div className="flex gap-4 overflow-x-auto w-[500px] pb-2">
       <MizzPromoCard
-        title="20% OFF"
-        description="Primeiro pedido"
-        couponCode="BEMVINDO20"
+        title="Combo do dia"
+        description="Burger + Batata + Refri"
+        couponCode="COMBO20"
         className="min-w-[280px] bg-primary"
         onClick={() => {}}
       />
       <MizzPromoCard
-        title="Frete grátis"
-        description="Pedidos +R$50"
-        className="min-w-[280px] [background:linear-gradient(135deg,#16a34a,#22c55e)]"
+        title="Happy Hour"
+        description="Chopp em dobro 17h-20h"
+        className="min-w-[280px] [background:linear-gradient(135deg,#f59e0b,#d97706)]"
         onClick={() => {}}
       />
       <MizzPromoCard
-        title="Combo especial"
-        description="Burger + Batata + Refri"
-        couponCode="COMBO30"
+        title="Sobremesa grátis"
+        description="Em pedidos acima de R$80"
+        couponCode="DOCE"
         className="min-w-[280px] [background:linear-gradient(135deg,#7c3aed,#a78bfa)]"
         onClick={() => {}}
       />

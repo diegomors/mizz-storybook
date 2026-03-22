@@ -10,21 +10,34 @@ const mizzButtonVariants = cva(
         /** Filled (default) - Botão com fundo sólido */
         filled:
           'bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80 shadow-sm',
+        /** Secondary - Botão com fundo escuro (secondary) */
+        secondary:
+          'bg-secondary text-secondary-foreground hover:bg-secondary/90 active:bg-secondary/80 shadow-sm',
         /** Outlined - Botão com borda */
         outlined:
           'border border-primary text-primary bg-transparent hover:bg-primary/5 active:bg-primary/10',
+        /** Ghost - Botão com borda sutil */
+        ghost:
+          'border border-border text-foreground bg-transparent hover:bg-neutral-20 active:bg-neutral-30',
         /** Text - Botão sem fundo nem borda */
         text: 'text-primary bg-transparent hover:bg-primary/5 active:bg-primary/10',
+        /** Destructive - Botão de ação destrutiva */
+        destructive:
+          'bg-destructive text-destructive-foreground hover:bg-destructive/90 active:bg-destructive/80 shadow-sm',
       },
       size: {
-        sm: 'h-10 px-4 text-sm rounded-full',
-        md: 'h-11 px-6 text-sm rounded-full',
-        lg: 'h-14 px-8 text-base rounded-full',
+        sm: 'h-10 px-4 text-sm rounded-lg',
+        md: 'h-11 px-6 text-sm rounded-lg',
+        lg: 'h-14 px-8 text-base rounded-lg',
+      },
+      fullWidth: {
+        true: 'w-full',
       },
     },
     defaultVariants: {
       variant: 'filled',
       size: 'md',
+      fullWidth: false,
     },
   }
 );
@@ -39,6 +52,8 @@ export interface MizzButtonProps
   endIcon?: ReactNode;
   /** Exibe spinner de carregamento e impede cliques duplicados */
   loading?: boolean;
+  /** Botão ocupa 100% da largura do container */
+  fullWidth?: boolean;
 }
 
 /**
@@ -49,7 +64,7 @@ export interface MizzButtonProps
  * impedindo cliques duplicados.
  */
 const MizzButton = forwardRef<HTMLButtonElement, MizzButtonProps>(
-  ({ className, variant, size, startIcon, endIcon, loading, disabled, onClick, children, ...props }, ref) => {
+  ({ className, variant, size, fullWidth, startIcon, endIcon, loading, disabled, onClick, children, ...props }, ref) => {
     const isDisabled = disabled || loading;
 
     const handleClick = useCallback(
@@ -65,7 +80,7 @@ const MizzButton = forwardRef<HTMLButtonElement, MizzButtonProps>(
 
     return (
       <button
-        className={cn(mizzButtonVariants({ variant, size, className }))}
+        className={cn(mizzButtonVariants({ variant, size, fullWidth, className }))}
         ref={ref}
         disabled={isDisabled}
         aria-disabled={isDisabled}

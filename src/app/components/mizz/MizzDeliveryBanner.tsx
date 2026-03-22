@@ -7,7 +7,7 @@ export interface MizzDeliveryBannerProps {
   icon?: ReactNode;
   /** Texto principal */
   title: string;
-  /** Subtexto (ex: tempo, distância) */
+  /** Subtexto (ex: tempo de preparo, mesa, status) */
   subtitle?: string;
   /** Variante */
   variant?: 'default' | 'success' | 'warning' | 'promo';
@@ -16,8 +16,8 @@ export interface MizzDeliveryBannerProps {
 }
 
 /**
- * MizzDeliveryBanner - Banner informativo de entrega do Design System Mizz.
- * Usado para exibir tempo de entrega, frete grátis, promoções, etc.
+ * MizzDeliveryBanner - Banner informativo de food service do Design System Mizz.
+ * Usado para exibir tempo de preparo, status da mesa, promoções, etc.
  */
 export const MizzDeliveryBanner = ({
   icon,
@@ -35,27 +35,32 @@ export const MizzDeliveryBanner = ({
 
   const defaultIcons: Record<string, ReactNode> = {
     default: (
+      // Relógio - tempo de preparo
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
         <circle cx="10" cy="10" r="7.5" stroke="currentColor" strokeWidth="1.5" />
         <path d="M10 6v4l2.5 2.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
     success: (
+      // Prato com talheres - pedido pronto
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M3 10l2 2h3l2-3h4l2-2h1l1 5H2l1-2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
-        <circle cx="6" cy="15" r="1.5" stroke="currentColor" strokeWidth="1.5" />
-        <circle cx="15" cy="15" r="1.5" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="10" cy="10" r="6" stroke="currentColor" strokeWidth="1.5" />
+        <circle cx="10" cy="10" r="3" stroke="currentColor" strokeWidth="1" />
+        <path d="M3 17h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
     warning: (
+      // Alerta de cozinha
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
         <path d="M10 3l7.5 13H2.5L10 3z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
         <path d="M10 8.5v3M10 13.5h.01" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     ),
     promo: (
+      // Tag de desconto
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-        <path d="M10 2l2 4h4l-3 3 1 5-4-2-4 2 1-5-3-3h4l2-4z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+        <path d="M2 10V3h7l8 8-7 7-8-8z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+        <circle cx="6.5" cy="6.5" r="1.5" fill="currentColor" />
       </svg>
     ),
   };

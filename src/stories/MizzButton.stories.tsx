@@ -12,13 +12,17 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['filled', 'outlined', 'text'],
+      options: ['filled', 'secondary', 'outlined', 'ghost', 'text', 'destructive'],
       description: 'Configuração visual do botão',
     },
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
       description: 'Tamanho do botão',
+    },
+    fullWidth: {
+      control: 'boolean',
+      description: 'Botão ocupa 100% da largura',
     },
     disabled: {
       control: 'boolean',
@@ -43,6 +47,13 @@ export const Filled: Story = {
   },
 };
 
+export const Secondary: Story = {
+  args: {
+    children: 'Continuar',
+    variant: 'secondary',
+  },
+};
+
 export const Outlined: Story = {
   args: {
     children: 'Enabled',
@@ -50,10 +61,24 @@ export const Outlined: Story = {
   },
 };
 
+export const Ghost: Story = {
+  args: {
+    children: 'Cancelar',
+    variant: 'ghost',
+  },
+};
+
 export const Text: Story = {
   args: {
     children: 'Enabled',
     variant: 'text',
+  },
+};
+
+export const Destructive: Story = {
+  args: {
+    children: 'Deletar',
+    variant: 'destructive',
   },
 };
 
@@ -77,6 +102,39 @@ export const WithIcon: Story = {
   },
 };
 
+// --- Full Width ---
+
+export const FullWidth: Story = {
+  args: {
+    children: 'Cadastrar',
+    variant: 'filled',
+    fullWidth: true,
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 375 }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const FullWidthSecondary: Story = {
+  name: 'Full Width Secondary',
+  args: {
+    children: 'Continuar',
+    variant: 'secondary',
+    fullWidth: true,
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 375 }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
 // --- Visão geral ---
 
 export const AllConfigurations: Story = {
@@ -88,12 +146,24 @@ export const AllConfigurations: Story = {
         <MizzButton variant="filled">Enabled</MizzButton>
       </div>
       <div>
+        <p className="text-sm text-neutral-500 mb-4">secondary</p>
+        <MizzButton variant="secondary">Continuar</MizzButton>
+      </div>
+      <div>
         <p className="text-sm text-neutral-500 mb-4">outlined</p>
         <MizzButton variant="outlined">Enabled</MizzButton>
       </div>
       <div>
+        <p className="text-sm text-neutral-500 mb-4">ghost</p>
+        <MizzButton variant="ghost">Cancelar</MizzButton>
+      </div>
+      <div>
         <p className="text-sm text-neutral-500 mb-4">text</p>
         <MizzButton variant="text">Enabled</MizzButton>
+      </div>
+      <div>
+        <p className="text-sm text-neutral-500 mb-4">destructive</p>
+        <MizzButton variant="destructive">Deletar</MizzButton>
       </div>
     </div>
   ),
@@ -162,6 +232,22 @@ export const AllStatesWithLoading: Story = {
       <div>
         <p className="text-sm text-neutral-500 mb-4">loading text</p>
         <MizzButton variant="text" loading>Aguarde...</MizzButton>
+      </div>
+    </div>
+  ),
+};
+
+export const AuthExample: Story = {
+  name: 'Exemplo Autenticação',
+  render: () => (
+    <div className="flex flex-col gap-4 p-6" style={{ width: 375 }}>
+      <MizzButton variant="filled" fullWidth>Cadastrar</MizzButton>
+      <MizzButton variant="secondary" fullWidth>Continuar</MizzButton>
+      <MizzButton variant="outlined" fullWidth>Acessar painel</MizzButton>
+      <MizzButton variant="text" fullWidth>Recuperar senha</MizzButton>
+      <div className="flex gap-3 justify-center">
+        <MizzButton variant="ghost" size="sm">Cancelar</MizzButton>
+        <MizzButton variant="destructive" size="sm">Deletar</MizzButton>
       </div>
     </div>
   ),

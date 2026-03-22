@@ -20,8 +20,8 @@ export interface MizzMapCardProps {
 }
 
 /**
- * MizzMapCard - Card flutuante sobre mapa do Design System Mizz.
- * Usado para exibir informações de localização em delivery/food service.
+ * MizzMapCard - Card de localização do Design System Mizz.
+ * Usado para exibir informações de estabelecimentos e restaurantes.
  */
 export const MizzMapCard = ({
   title,
