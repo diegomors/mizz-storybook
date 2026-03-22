@@ -1,0 +1,150 @@
+import { Meta, Typeset } from '@storybook/addon-docs/blocks';
+
+<Meta title="Fundamentos/Tipografia" />
+
+# Tipografia
+
+O Mizz Design System utiliza a família tipográfica **Be Vietnam Pro**, uma fonte moderna e legível que funciona bem em diferentes tamanhos e pesos.
+
+## Família Tipográfica
+
+**Be Vietnam Pro** - Uma fonte sans-serif versátil e contemporânea.
+
+### Pesos Disponíveis
+
+- **Regular (400)** - Para textos corridos e conteúdo geral
+- **Medium (500)** - Para subtítulos e ênfases leves
+- **SemiBold (600)** - Para destaques importantes
+- **Bold (700)** - Para títulos e elementos de destaque
+- **ExtraBold (800)** - Para headlines e impacto visual
+
+## Escala Tipográfica
+
+<div className="space-y-6">
+  <div>
+    <p className="text-[96px] font-extrabold mb-2" style={{ fontFamily: 'Be Vietnam Pro' }}>
+      Heading 1
+    </p>
+    <p className="text-gray-600">96px / ExtraBold / -1.92px tracking</p>
+  </div>
+
+  <div>
+    <p className="text-[64px] font-extrabold mb-2" style={{ fontFamily: 'Be Vietnam Pro' }}>
+      Heading 2
+    </p>
+    <p className="text-gray-600">64px / ExtraBold</p>
+  </div>
+
+  <div>
+    <p className="text-[40px] font-bold mb-2" style={{ fontFamily: 'Be Vietnam Pro' }}>
+      Heading 3
+    </p>
+    <p className="text-gray-600">40px / Bold / -0.8px tracking</p>
+  </div>
+
+  <div>
+    <p className="text-[32px] font-bold mb-2" style={{ fontFamily: 'Be Vietnam Pro' }}>
+      Heading 4
+    </p>
+    <p className="text-gray-600">32px / Bold</p>
+  </div>
+
+  <div>
+    <p className="text-[25.2px] font-semibold mb-2" style={{ fontFamily: 'Be Vietnam Pro' }}>
+      Heading 5
+    </p>
+    <p className="text-gray-600">25.2px / SemiBold</p>
+  </div>
+
+  <div>
+    <p className="text-[20px] mb-2" style={{ fontFamily: 'Be Vietnam Pro' }}>
+      Body Large
+    </p>
+    <p className="text-gray-600">20px / Regular</p>
+  </div>
+
+  <div>
+    <p className="text-[18px] mb-2" style={{ fontFamily: 'Be Vietnam Pro' }}>
+      Body Medium
+    </p>
+    <p className="text-gray-600">18px / Regular</p>
+  </div>
+
+  <div>
+    <p className="text-[16px] mb-2" style={{ fontFamily: 'Be Vietnam Pro' }}>
+      Body Small
+    </p>
+    <p className="text-gray-600">16px / Regular</p>
+  </div>
+
+  <div>
+    <p className="text-[14px] mb-2" style={{ fontFamily: 'Be Vietnam Pro' }}>
+      Caption
+    </p>
+    <p className="text-gray-600">14px / Regular</p>
+  </div>
+
+  <div>
+    <p className="text-[12px] mb-2" style={{ fontFamily: 'Be Vietnam Pro' }}>
+      Small Text
+    </p>
+    <p className="text-gray-600">12px / Regular</p>
+  </div>
+</div>
+
+## Exemplos de Uso
+
+### Títulos de Página
+
+Use **Heading 1** (96px, ExtraBold) para títulos principais de páginas e seções importantes.
+
+```tsx
+<h1 className="text-[96px] font-extrabold" style={{ fontFamily: 'Be Vietnam Pro' }}>
+  Bem-vindo ao Mizz
+</h1>
+```
+
+### Títulos de Seção
+
+Use **Heading 2** (64px, ExtraBold) ou **Heading 3** (40px, Bold) para títulos de seções.
+
+```tsx
+<h2 className="text-[64px] font-extrabold" style={{ fontFamily: 'Be Vietnam Pro' }}>
+  Cardápio
+</h2>
+```
+
+### Corpo de Texto
+
+Use **Body Large** (20px) ou **Body Medium** (18px) para textos corridos.
+
+```tsx
+<p className="text-[20px]" style={{ fontFamily: 'Be Vietnam Pro' }}>
+  Lorem ipsum dolor sit amet consectetur...
+</p>
+```
+
+### Legendas e Notas
+
+Use **Caption** (14px) ou **Small Text** (12px) para informações secundárias.
+
+```tsx
+<p className="text-[14px] text-gray-600" style={{ fontFamily: 'Be Vietnam Pro' }}>
+  Informação adicional
+</p>
+```
+
+## Acessibilidade
+
+- **Contraste mínimo**: 4.5:1 para texto normal, 3:1 para texto grande
+- **Tamanho mínimo**: 14px para texto de interface
+- **Line-height**: 1.5 para textos corridos (melhor legibilidade)
+- **Letter-spacing**: Ajustado para títulos grandes (-1.92px para 96px)
+
+## Boas Práticas
+
+1. **Hierarquia clara**: Use pesos e tamanhos diferentes para criar hierarquia visual
+2. **Consistência**: Mantenha o mesmo tamanho e peso para elementos similares
+3. **Legibilidade**: Evite usar pesos muito finos em tamanhos pequenos
+4. **Contraste**: Garanta contraste adequado entre texto e fundo
+5. **Espaçamento**: Use espaçamento adequado entre linhas e parágrafos

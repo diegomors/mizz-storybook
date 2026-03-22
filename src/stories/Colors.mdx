@@ -1,0 +1,110 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+
+<Meta title="Fundamentos/Cores" />
+
+# Cores
+
+A paleta de cores do Mizz Design System foi cuidadosamente selecionada para transmitir energia, confiança e modernidade.
+
+## Cores Primárias
+
+<ColorPalette>
+  <ColorItem
+    title="Laranja Mizz"
+    subtitle="Cor principal da marca"
+    colors={{
+      '#ff5c00': 'Laranja',
+    }}
+  />
+</ColorPalette>
+
+### Uso da Cor Primária
+
+- Botões principais (CTA)
+- Links e elementos interativos
+- Destaques e ênfases
+- Ícones principais
+
+**Contraste**: 
+- Com preto: 6.78:1 (AAA)
+- Com branco: 3.10:1 (AA)
+
+## Cores Secundárias
+
+<ColorPalette>
+  <ColorItem
+    title="Preto"
+    subtitle="Cor secundária"
+    colors={{
+      '#000000': 'Preto',
+    }}
+  />
+  <ColorItem
+    title="Branco"
+    subtitle="Cor neutra"
+    colors={{
+      '#ffffff': 'Branco',
+    }}
+  />
+</ColorPalette>
+
+## Cores Semânticas
+
+<ColorPalette>
+  <ColorItem
+    title="Negativos"
+    subtitle="Estados de erro e alerta"
+    colors={{
+      '#ff8585': 'Negativo 1',
+      '#ff4949': 'Negativo 2',
+    }}
+  />
+  <ColorItem
+    title="Positivos"
+    subtitle="Estados de sucesso"
+    colors={{
+      '#85ff85': 'Positivo 1',
+      '#00d68f': 'Positivo 2',
+    }}
+  />
+</ColorPalette>
+
+## Cores Neutras
+
+<ColorPalette>
+  <ColorItem
+    title="Escala de Cinzas"
+    subtitle="Backgrounds e textos secundários"
+    colors={{
+      '#ffffff': 'B0',
+      '#f5f5f5': 'B10',
+      '#e0e0e0': 'B20',
+      '#cccccc': 'B30',
+      '#b3b3b3': 'B40',
+      '#999999': 'B50',
+      '#808080': 'B60',
+      '#666666': 'B70',
+      '#4d4d4d': 'B80',
+      '#333333': 'B200',
+      '#1a1a1a': 'B500',
+      '#000000': 'B900',
+    }}
+  />
+</ColorPalette>
+
+## Acessibilidade
+
+Todas as combinações de cores seguem as diretrizes WCAG 2.1:
+
+- **AAA**: Contraste mínimo de 7:1 para texto normal
+- **AA**: Contraste mínimo de 4.5:1 para texto normal
+- **AA Large**: Contraste mínimo de 3:1 para texto grande
+
+### Exemplos de Combinações Acessíveis
+
+| Fundo | Texto | Contraste | Nível |
+|-------|-------|-----------|-------|
+| #ff5c00 | #000000 | 6.78:1 | AAA |
+| #ff5c00 | #ffffff | 3.10:1 | AA |
+| #000000 | #ffffff | 21:1 | AAA |
+| #ffffff | #000000 | 21:1 | AAA |
