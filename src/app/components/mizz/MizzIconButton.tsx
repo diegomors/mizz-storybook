@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../ui/utils';
 
 const mizzIconButtonVariants = cva(
-  'inline-flex items-center justify-center rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-38 select-none cursor-pointer',
+  'inline-flex items-center justify-center rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-38 select-none cursor-pointer',
   {
     variants: {
       variant: {
@@ -11,6 +11,8 @@ const mizzIconButtonVariants = cva(
         filled: 'bg-primary text-primary-foreground hover:bg-primary/90 active:bg-primary/80 shadow-sm',
         /** Outlined */
         outlined: 'border border-neutral-80 text-neutral-900 bg-transparent hover:bg-neutral-20 active:bg-neutral-30',
+        /** Ghost - sem borda, fundo sutil ao hover */
+        ghost: 'text-neutral-900 bg-transparent hover:bg-neutral-20 active:bg-neutral-30',
         /** Standard - sem fundo */
         standard: 'text-neutral-900 bg-transparent hover:bg-neutral-20 active:bg-neutral-30',
       },
