@@ -8,120 +8,118 @@ export interface MizzTextFieldProps
   label?: string;
   /** Mensagem de erro a ser exibida */
   error?: string;
-  /** Texto auxiliar para orientação */
-  helperText?: string;
-  /** Ícone a ser exibido no início do campo */
-  startIcon?: ReactNode;
-  /** Ícone a ser exibido no final do campo */
-  endIcon?: ReactNode;
+  /** Texto de suporte abaixo do campo */
+  supportingText?: string;
+  /** Ícone no início do campo (leading icon) */
+  leadingIcon?: ReactNode;
+  /** Ícone no final do campo (trailing icon) */
+  trailingIcon?: ReactNode;
 }
 
 /**
- * MizzTextField - Componente de entrada de texto para o Design System Mizz.
- * Oferece suporte a rótulos, mensagens de erro, textos auxiliares e ícones.
+ * MizzTextField - Campo de texto outlined do Design System Mizz.
+ * Estilo: outlined (padrão). Estados: enabled, hovered, focused, error, disabled.
  */
 const MizzTextField = forwardRef<HTMLInputElement, MizzTextFieldProps>(
-  ({ className, label, error, helperText, startIcon, endIcon, id, required, disabled, ...props }, ref) => {
-    // Gera ID único se não fornecido, para acessibilidade adequada
-    const fieldId = id || useId();
+  ({ className, label, error, supportingText, leadingIcon, trailingIcon, id, required, disabled, ...props }, ref) => {
+    const generatedId = useId();
+    const fieldId = id || generatedId;
     const errorId = `${fieldId}-error`;
-    const helperId = `${fieldId}-helper`;
+    const supportId = `${fieldId}-support`;
 
     return (
-      <div className="flex flex-col gap-1.5 w-full">
-        {/* Label com indicador de campo obrigatório */}
-        {label && (
-          <label 
-            htmlFor={fieldId} 
-            className="text-sm font-medium text-neutral-900 px-0.5"
-          >
-            {label}
-            {required && (
-              <span className="text-negative-2 ml-1" aria-label="obrigatório">
-                *
-              </span>
-            )}
-          </label>
-        )}
-        
-        {/* Container do input com ícones */}
-        <div className="relative flex items-center group">
-          {/* Ícone inicial */}
-          {startIcon && (
-            <span 
+      <div className="flex flex-col gap-1 w-full">
+        {/* Container do campo com label flutuante */}
+        <div className={cn(
+          'relative flex items-center rounded-sm border bg-transparent transition-all',
+          error
+            ? 'border-negative-2'
+            : disabled
+              ? 'border-neutral-40 opacity-38'
+              : 'border-neutral-80 hover:border-neutral-900 focus-within:border-primary focus-within:border-2',
+          className
+        )}>
+          {/* Leading icon */}
+          {leadingIcon && (
+            <span
               className={cn(
-                "absolute left-3.5 flex items-center pointer-events-none transition-colors",
-                error ? "text-negative-2" : "text-neutral-500 group-focus-within:text-primary"
+                'flex items-center pl-3 text-neutral-500',
+                error && 'text-negative-2'
               )}
               aria-hidden="true"
             >
-              {startIcon}
+              {leadingIcon}
             </span>
           )}
-          
-          {/* Input */}
-          <input
-            id={fieldId}
-            className={cn(
-              'flex h-12 w-full rounded-xl border-2 bg-neutral-0 px-4 py-2 text-base transition-all',
-              'placeholder:text-neutral-500',
-              'focus-visible:outline-none focus-visible:ring-0',
-              'disabled:cursor-not-allowed disabled:opacity-40 disabled:bg-neutral-10',
-              'hover:border-neutral-50',
-              // Adiciona padding quando há ícones
-              startIcon && 'pl-11',
-              endIcon && 'pr-11',
-              // Estados de erro
-              error
-                ? 'border-negative-2 text-negative-2'
-                : 'border-neutral-30 text-neutral-900 focus-visible:border-primary',
-              className
-            )}
-            ref={ref}
-            required={required}
-            disabled={disabled}
-            // Acessibilidade: conecta input com mensagens de erro/ajuda
-            aria-invalid={!!error}
-            aria-describedby={cn(
-              error && errorId,
-              helperText && !error && helperId
-            )}
-            {...props}
-          />
-          
-          {/* Ícone final */}
-          {endIcon && (
-            <span 
+
+          {/* Input + floating label */}
+          <div className="relative flex-1 min-w-0">
+            <input
+              id={fieldId}
               className={cn(
-                "absolute right-3.5 flex items-center pointer-events-none transition-colors",
-                error ? "text-negative-2" : "text-neutral-500 group-focus-within:text-primary"
+                'peer w-full h-14 bg-transparent px-4 text-base text-neutral-900 outline-none',
+                'placeholder:text-transparent focus:placeholder:text-neutral-500',
+                label && 'pt-5 pb-1',
+                leadingIcon && 'pl-2',
+                trailingIcon && 'pr-2',
+                disabled && 'cursor-not-allowed',
+              )}
+              ref={ref}
+              required={required}
+              disabled={disabled}
+              placeholder={props.placeholder || ' '}
+              aria-invalid={!!error}
+              aria-describedby={cn(
+                error && errorId,
+                supportingText && !error && supportId
+              ) || undefined}
+              {...props}
+            />
+            {label && (
+              <label
+                htmlFor={fieldId}
+                className={cn(
+                  'absolute left-4 top-1/2 -translate-y-1/2 text-base transition-all pointer-events-none origin-top-left',
+                  'peer-focus:top-2 peer-focus:translate-y-0 peer-focus:scale-75 peer-focus:text-primary',
+                  'peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:scale-75',
+                  leadingIcon && 'left-2',
+                  error ? 'text-negative-2' : 'text-neutral-500',
+                )}
+              >
+                {label}
+                {required && <span className="text-negative-2 ml-0.5">*</span>}
+              </label>
+            )}
+          </div>
+
+          {/* Trailing icon */}
+          {trailingIcon && (
+            <span
+              className={cn(
+                'flex items-center pr-3 text-neutral-500',
+                error && 'text-negative-2'
               )}
               aria-hidden="true"
             >
-              {endIcon}
+              {trailingIcon}
             </span>
           )}
         </div>
-        
-        {/* Mensagem de erro */}
+
+        {/* Error / Supporting text */}
         {error && (
-          <p 
-            id={errorId} 
-            className="text-xs font-medium text-negative-2 px-1"
+          <p
+            id={errorId}
+            className="text-xs text-negative-2 px-4"
             role="alert"
             aria-live="polite"
           >
             {error}
           </p>
         )}
-        
-        {/* Texto auxiliar */}
-        {helperText && !error && (
-          <p 
-            id={helperId} 
-            className="text-xs text-neutral-500 px-1"
-          >
-            {helperText}
+        {supportingText && !error && (
+          <p id={supportId} className="text-xs text-neutral-500 px-4">
+            {supportingText}
           </p>
         )}
       </div>

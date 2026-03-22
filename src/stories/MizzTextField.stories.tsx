@@ -1,61 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { MizzTextField } from '../app/components/mizz/MizzTextField';
-import { Mail, Lock, Search as SearchIcon, User } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 
-/**
- * # MizzTextField
- * 
- * Campo de texto do Design System Mizz com suporte completo a acessibilidade
- * e validação de formulários.
- * 
- * ## Recursos de Acessibilidade
- * - Labels associados corretamente via `htmlFor` e IDs únicos
- * - Suporte a `aria-invalid`, `aria-describedby` e `aria-required`
- * - Mensagens de erro com `role="alert"` e `aria-live="polite"`
- * - Navegação completa por teclado
- * - Compatível com leitores de tela
- */
 const meta = {
-  title: 'Mizz/TextField',
+  title: 'Componentes/TextField',
   component: MizzTextField,
   parameters: {
     layout: 'centered',
-    docs: {
-      description: {
-        component: 'Campo de entrada de texto com suporte a labels, erros, textos auxiliares e ícones.',
-      },
-    },
   },
   tags: ['autodocs'],
   argTypes: {
-    label: {
-      control: 'text',
-      description: 'Rótulo do campo',
-    },
-    placeholder: {
-      control: 'text',
-      description: 'Texto de placeholder',
-    },
-    error: {
-      control: 'text',
-      description: 'Mensagem de erro',
-    },
-    helperText: {
-      control: 'text',
-      description: 'Texto auxiliar para orientação',
-    },
-    required: {
-      control: 'boolean',
-      description: 'Campo obrigatório',
-    },
-    disabled: {
-      control: 'boolean',
-      description: 'Campo desabilitado',
-    },
+    label: { control: 'text', description: 'Rótulo do campo' },
+    placeholder: { control: 'text', description: 'Texto de placeholder' },
+    error: { control: 'text', description: 'Mensagem de erro' },
+    supportingText: { control: 'text', description: 'Texto de suporte' },
+    required: { control: 'boolean', description: 'Campo obrigatório' },
+    disabled: { control: 'boolean', description: 'Campo desabilitado' },
   },
   decorators: [
     (Story) => (
-      <div style={{ width: '400px' }}>
+      <div style={{ width: '360px' }}>
         <Story />
       </div>
     ),
@@ -65,190 +29,117 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+// --- Style ---
+
+export const Outlined: Story = {
+  name: 'outlined (default)',
   args: {
-    label: 'Nome completo',
-    placeholder: 'Digite seu nome',
+    label: 'Label',
+    placeholder: 'Input',
   },
 };
 
-export const WithHelperText: Story = {
+// --- States ---
+
+export const Enabled: Story = {
   args: {
-    label: 'Email',
-    placeholder: 'seu@email.com',
-    helperText: 'Utilize seu email corporativo',
+    label: 'Label',
+    placeholder: 'Input',
   },
 };
 
 export const WithError: Story = {
+  name: 'Error',
   args: {
-    label: 'Senha',
-    type: 'password',
-    placeholder: '••••••••',
-    error: 'A senha deve ter no mínimo 8 caracteres',
-  },
-};
-
-export const Required: Story = {
-  args: {
-    label: 'CPF',
-    placeholder: '000.000.000-00',
-    required: true,
-    helperText: 'Este campo é obrigatório',
+    label: 'Label',
+    error: 'Supporting text',
+    defaultValue: 'Input',
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: 'Campo desabilitado',
-    placeholder: 'Não editável',
+    label: 'Label',
+    placeholder: 'Input',
     disabled: true,
-    value: 'Valor fixo',
   },
 };
 
-export const WithStartIcon: Story = {
+// --- Text configurations ---
+
+export const InputText: Story = {
+  name: 'input-text (default)',
   args: {
-    label: 'Email',
-    placeholder: 'seu@email.com',
-    startIcon: <Mail size={20} />,
+    label: 'Label',
+    defaultValue: 'Input',
   },
 };
 
-export const WithEndIcon: Story = {
+export const LabelText: Story = {
+  name: 'label-text',
   args: {
-    label: 'Buscar',
-    placeholder: 'Digite para buscar...',
-    endIcon: <SearchIcon size={20} />,
+    label: 'Label',
   },
 };
 
-export const Password: Story = {
+export const PlaceholderText: Story = {
+  name: 'placeholder-text',
   args: {
-    label: 'Senha',
-    type: 'password',
-    placeholder: '••••••••',
-    startIcon: <Lock size={20} />,
-    helperText: 'Mínimo de 8 caracteres',
+    label: 'Label',
+    placeholder: 'Placeholder text',
   },
 };
 
-export const Search: Story = {
+// --- Leading icon ---
+
+export const LeadingIconTrue: Story = {
+  name: 'Leading icon: true',
   args: {
-    placeholder: 'Buscar produtos...',
-    startIcon: <SearchIcon size={20} />,
+    label: 'Label',
+    placeholder: 'Input',
+    leadingIcon: <Search size={20} />,
   },
 };
 
-export const Email: Story = {
+// --- Trailing icon ---
+
+export const TrailingIconTrue: Story = {
+  name: 'Trailing icon: true (default)',
   args: {
-    label: 'Email',
-    type: 'email',
-    placeholder: 'seu@email.com',
-    startIcon: <Mail size={20} />,
-    required: true,
+    label: 'Label',
+    defaultValue: 'Input',
+    trailingIcon: <X size={20} />,
   },
 };
 
-/**
- * Exemplo de formulário completo com diferentes estados
- */
-export const FormExample: Story = {
-  render: () => (
-    <div className="flex flex-col gap-6 p-8 bg-gray-50 rounded-xl" style={{ width: '500px' }}>
-      <h3 className="text-lg font-semibold text-gray-900">Cadastro de usuário</h3>
-      
-      <MizzTextField
-        label="Nome completo"
-        placeholder="Digite seu nome"
-        startIcon={<User size={20} />}
-        required
-      />
-      
-      <MizzTextField
-        label="Email"
-        type="email"
-        placeholder="seu@email.com"
-        startIcon={<Mail size={20} />}
-        helperText="Utilize seu email principal"
-        required
-      />
-      
-      <MizzTextField
-        label="Senha"
-        type="password"
-        placeholder="••••••••"
-        startIcon={<Lock size={20} />}
-        error="A senha deve ter no mínimo 8 caracteres"
-        required
-      />
-      
-      <MizzTextField
-        label="Código promocional"
-        placeholder="Digite o código (opcional)"
-      />
-      
-      <MizzTextField
-        label="Campo desabilitado"
-        placeholder="Não editável"
-        disabled
-        value="Valor predefinido"
-      />
-    </div>
-  ),
+// --- Supporting text ---
+
+export const WithSupportingText: Story = {
+  name: 'Show supporting text',
+  args: {
+    label: 'Label',
+    placeholder: 'Input',
+    supportingText: 'Supporting text',
+  },
 };
 
-/**
- * Exemplo mostrando todos os estados possíveis
- */
+// --- Visão geral ---
+
 export const AllStates: Story = {
+  name: 'States',
   render: () => (
-    <div className="flex flex-col gap-6 p-8 bg-gray-50 rounded-xl" style={{ width: '500px' }}>
+    <div className="flex flex-col gap-6 p-4" style={{ width: '360px' }}>
       <div>
-        <h3 className="text-sm font-medium text-gray-700 mb-3">Estados básicos</h3>
-        <div className="flex flex-col gap-4">
-          <MizzTextField label="Normal" placeholder="Digite algo..." />
-          <MizzTextField label="Com valor" value="Texto digitado" readOnly />
-          <MizzTextField label="Desabilitado" placeholder="Não editável" disabled />
-        </div>
+        <p className="text-xs text-neutral-500 mb-2">enabled (default)</p>
+        <MizzTextField label="Label" placeholder="Input" />
       </div>
-      
       <div>
-        <h3 className="text-sm font-medium text-gray-700 mb-3">Com feedback</h3>
-        <div className="flex flex-col gap-4">
-          <MizzTextField 
-            label="Com texto auxiliar" 
-            placeholder="Digite..." 
-            helperText="Este é um texto de ajuda"
-          />
-          <MizzTextField 
-            label="Com erro" 
-            placeholder="Digite..." 
-            error="Este campo contém um erro"
-          />
-          <MizzTextField 
-            label="Obrigatório" 
-            placeholder="Digite..." 
-            required
-            helperText="Este campo é obrigatório"
-          />
-        </div>
+        <p className="text-xs text-neutral-500 mb-2">error</p>
+        <MizzTextField label="Label" defaultValue="Input" error="Supporting text" />
       </div>
-      
       <div>
-        <h3 className="text-sm font-medium text-gray-700 mb-3">Com ícones</h3>
-        <div className="flex flex-col gap-4">
-          <MizzTextField 
-            label="Ícone no início" 
-            placeholder="Digite..." 
-            startIcon={<User size={20} />}
-          />
-          <MizzTextField 
-            label="Ícone no final" 
-            placeholder="Digite..." 
-            endIcon={<SearchIcon size={20} />}
-          />
-        </div>
+        <p className="text-xs text-neutral-500 mb-2">disabled</p>
+        <MizzTextField label="Label" placeholder="Input" disabled />
       </div>
     </div>
   ),

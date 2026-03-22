@@ -1,67 +1,52 @@
 import { cn } from '../ui/utils';
 
 export interface MizzPageControlProps {
-  /** Total number of pages */
+  /** Número total de páginas */
   count: number;
-  /** Current active page (1-indexed) */
-  current: number;
-  /** Callback when page changes */
+  /** Página ativa (1-indexed) */
+  selected: number;
+  /** Callback quando a página muda */
   onChange?: (page: number) => void;
-  /** Optional orientation */
-  orientation?: 'horizontal' | 'vertical';
-  /** Optional size */
-  size?: 'sm' | 'md' | 'lg';
-  /** CSS classes */
+  /** Classes CSS adicionais */
   className?: string;
 }
 
 /**
- * MizzPageControl - A numeric page indicator for navigation.
- * Typically used in onboarding, carousels, or multi-step forms.
+ * MizzPageControl - Indicador de página do Design System Mizz.
+ * Utilizado em onboarding, carousels ou fluxos multi-step.
+ * Propriedade selected: 1 (padrão), 2, 3...
  */
 export const MizzPageControl = ({
   count,
-  current,
+  selected,
   onChange,
-  orientation = 'horizontal',
-  size = 'md',
   className,
 }: MizzPageControlProps) => {
   const pages = Array.from({ length: count }, (_, i) => i + 1);
 
-  const sizeClasses = {
-    sm: 'w-8 h-8 text-sm',
-    md: 'w-10 h-10 text-base',
-    lg: 'w-12 h-12 text-lg',
-  };
-
   return (
-    <div 
-      className={cn(
-        'flex gap-2',
-        orientation === 'vertical' ? 'flex-col' : 'flex-row',
-        className
-      )}
+    <div
+      className={cn('flex items-center gap-2', className)}
+      role="tablist"
+      aria-label="Indicador de página"
     >
       {pages.map((page) => {
-        const isSelected = page === current;
-        
+        const isSelected = page === selected;
+
         return (
           <button
             key={page}
             onClick={() => onChange?.(page)}
             className={cn(
-              'flex items-center justify-center rounded-full font-bold transition-all',
-              sizeClasses[size],
-              isSelected 
-                ? 'bg-primary text-neutral-0 shadow-md transform scale-110' 
-                : 'bg-neutral-10 text-neutral-500 hover:bg-neutral-20 hover:text-neutral-900 border-2 border-transparent'
+              'h-1.5 rounded-full transition-all',
+              isSelected
+                ? 'w-8 bg-primary'
+                : 'w-4 bg-neutral-40 hover:bg-neutral-60'
             )}
-            aria-current={isSelected ? 'page' : undefined}
+            role="tab"
+            aria-selected={isSelected}
             aria-label={`Página ${page}`}
-          >
-            {page}
-          </button>
+          />
         );
       })}
     </div>
