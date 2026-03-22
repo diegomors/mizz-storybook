@@ -3,7 +3,7 @@ import { MizzMapCard } from '../app/components/mizz/MizzMapCard';
 import { MizzButton } from '../app/components/mizz/MizzButton';
 
 const meta = {
-  title: 'Food Service/MapCard',
+  title: 'Food & Delivery/MapCard',
   component: MizzMapCard,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

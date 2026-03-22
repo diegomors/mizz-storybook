@@ -3,7 +3,7 @@ import { MizzOrderCard } from '../app/components/mizz/MizzOrderCard';
 import { MizzButton } from '../app/components/mizz/MizzButton';
 
 const meta = {
-  title: 'Food Service/OrderCard',
+  title: 'Food & Delivery/OrderCard',
   component: MizzOrderCard,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

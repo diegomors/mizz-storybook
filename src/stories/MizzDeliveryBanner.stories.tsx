@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MizzDeliveryBanner } from '../app/components/mizz/MizzDeliveryBanner';
 
 const meta = {
-  title: 'Food Service/DeliveryBanner',
+  title: 'Food & Delivery/DeliveryBanner',
   component: MizzDeliveryBanner,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

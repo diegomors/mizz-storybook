@@ -9,7 +9,7 @@ const foodServiceSteps = [
 ];
 
 const meta = {
-  title: 'Food Service/OrderStatus',
+  title: 'Food & Delivery/OrderStatus',
   component: MizzOrderStatus,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],

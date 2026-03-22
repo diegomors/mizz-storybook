@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MizzPromoCard } from '../app/components/mizz/MizzPromoCard';
 
 const meta = {
-  title: 'Food Service/PromoCard',
+  title: 'Food & Delivery/PromoCard',
   component: MizzPromoCard,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],
