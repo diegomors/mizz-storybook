@@ -52,10 +52,14 @@ export const MizzOnboardingSlide = ({
       <div className="flex-1 flex items-center justify-center p-8">
         {illustration || (
           <div className="w-48 h-48 rounded-2xl bg-primary-foreground/10 flex items-center justify-center">
-            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" opacity="0.5">
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <path d="M21 15l-5-5L5 21" />
+            {/* Ilustração food service: prato + garçom */}
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.7">
+              <ellipse cx="40" cy="55" rx="28" ry="6" />
+              <path d="M12 55c0-18 12-32 28-32s28 14 28 32" />
+              <circle cx="40" cy="30" r="8" />
+              <path d="M36 26c0-6 8-6 8 0" strokeWidth="1.5" />
+              <path d="M40 22v-6M38 16h4" strokeLinecap="round" />
+              <circle cx="40" cy="42" r="3" strokeWidth="1.5" />
             </svg>
           </div>
         )}

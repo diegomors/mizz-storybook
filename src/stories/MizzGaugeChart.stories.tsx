@@ -20,7 +20,7 @@ export const Default: Story = {
   args: {
     value: 65,
     label: '28 min',
-    subtitle: 'Tempo médio de atendimento',
+    subtitle: 'Tempo médio de preparo',
   },
 };
 
@@ -38,19 +38,21 @@ export const AllSizes: Story = {
   name: 'Tamanhos',
   render: () => (
     <div className="flex items-end gap-8">
-      <MizzGaugeChart value={40} label="40%" size="sm" />
-      <MizzGaugeChart value={65} label="65%" size="md" />
-      <MizzGaugeChart value={85} label="85%" size="lg" />
+      <MizzGaugeChart value={40} label="40%" size="sm" subtitle="Ocupação" />
+      <MizzGaugeChart value={65} label="65%" size="md" subtitle="Satisfação" />
+      <MizzGaugeChart value={85} label="85%" size="lg" subtitle="Eficiência" />
     </div>
   ),
 };
 
-export const DashboardExample: Story = {
-  name: 'Exemplo Dashboard',
+export const DashboardRelatórios: Story = {
+  name: 'Relatórios do Restaurante',
   render: () => (
     <div className="grid grid-cols-2 gap-8 p-6">
-      <MizzGaugeChart value={75} label="28 min" badge="-5%" badgeColor="positive" subtitle="Tempo médio de atendimento" />
-      <MizzGaugeChart value={45} label="28 min" badge="+12%" badgeColor="negative" subtitle="Tempo médio de preparo" />
+      <MizzGaugeChart value={75} label="28 min" badge="-5%" badgeColor="positive" subtitle="Tempo médio de preparo" />
+      <MizzGaugeChart value={45} label="12 min" badge="+2 min" badgeColor="warning" subtitle="Tempo médio de espera" />
+      <MizzGaugeChart value={90} label="4.5" badge="ótimo" badgeColor="positive" subtitle="Avaliação dos clientes" />
+      <MizzGaugeChart value={60} label="18/30" subtitle="Mesas ocupadas" />
     </div>
   ),
 };

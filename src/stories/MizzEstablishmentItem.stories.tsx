@@ -18,10 +18,10 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+// Ícone de restaurante/food service
 const storeIcon = (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-    <path d="M9 22V12h6v10" />
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 002-2V2M7 2v20M21 15V2l-4 6-4-6v13a4 4 0 004 4h0a4 4 0 004-4z" />
   </svg>
 );
 
