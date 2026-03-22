@@ -25,7 +25,7 @@ const iconCategories = [
 ];
 
 const meta = {
-  title: 'Food Service/CategoryBar',
+  title: 'Food & Delivery/CategoryBar',
   component: MizzCategoryBar,
   parameters: { layout: 'centered' },
   tags: ['autodocs'],
