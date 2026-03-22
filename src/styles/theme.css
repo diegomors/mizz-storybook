@@ -1,13 +1,27 @@
 @custom-variant dark (&:is(.dark *));
 
+/* ═══════════════════════════════════════════════════════
+   WHITE-LABEL DESIGN TOKENS
+   Override these CSS custom properties to rebrand the entire
+   design system. All components reference semantic tokens
+   (--primary, --background, etc.) instead of hard-coded colors.
+   ═══════════════════════════════════════════════════════ */
+
 :root {
+  /* ── Typography (white-label) ── */
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-heading: var(--font-family-sans);
+  --font-family-mono: 'JetBrains Mono', ui-monospace, monospace;
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: #000000;
-  
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  /* ── Brand palette (white-label) ── */
   --primary: #ff5c00;
   --primary-foreground: #ffffff;
-  
+
+  /* ── Neutral scale ── */
   --neutral-0: #ffffff;
   --neutral-10: #fafafa;
   --neutral-20: #f5f5f5;
@@ -21,60 +35,167 @@
   --neutral-500: #3b3b3b;
   --neutral-900: #000000;
 
+  /* ── Semantic colors ── */
   --negative-1: #ffdad6;
   --negative-2: #ff5449;
   --positive-1: #e6faf1;
   --positive-2: #00ca75;
+  --warning-1: #fff8e1;
+  --warning-2: #ffab00;
+  --info-1: #e3f2fd;
+  --info-2: #2196f3;
 
+  /* ── Surface & layout ── */
+  --background: var(--neutral-0);
+  --foreground: var(--neutral-900);
   --card: var(--neutral-0);
   --card-foreground: var(--neutral-900);
   --popover: var(--neutral-0);
   --popover-foreground: var(--neutral-900);
-  
+
+  /* ── Semantic roles ── */
   --secondary: var(--neutral-900);
   --secondary-foreground: var(--neutral-0);
-  
   --muted: var(--neutral-20);
   --muted-foreground: var(--neutral-200);
-  
   --accent: var(--neutral-10);
   --accent-foreground: var(--neutral-900);
-  
   --destructive: var(--negative-2);
   --destructive-foreground: var(--neutral-0);
-  
+
+  /* ── Input/border ── */
   --border: var(--neutral-30);
   --input: var(--neutral-30);
   --input-background: var(--neutral-0);
-  
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
+  --ring: var(--primary);
+
+  /* ── Radius ── */
   --radius: 0.625rem;
+
+  /* ── Overlay ── */
+  --overlay: rgba(0, 0, 0, 0.5);
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
+/* ═══════════════════════════════════════════
+   DARK MODE
+   ═══════════════════════════════════════════ */
 .dark {
-  --background: var(--neutral-900);
+  --background: #121212;
   --foreground: var(--neutral-0);
-  --card: var(--neutral-900);
-  --card-foreground: var(--neutral-0);
-  --popover: var(--neutral-900);
-  --popover-foreground: var(--neutral-0);
-  --primary: #ff5c00;
+
+  --neutral-10: #1e1e1e;
+  --neutral-20: #252525;
+  --neutral-30: #2e2e2e;
+  --neutral-40: #3a3a3a;
+  --neutral-50: #4a4a4a;
+  --neutral-60: #5a5a5a;
+  --neutral-70: #6a6a6a;
+  --neutral-80: #7a7a7a;
+  --neutral-200: #a0a0a0;
+  --neutral-500: #d0d0d0;
+  --neutral-900: #f5f5f5;
+
+  --primary: #ff7a33;
   --primary-foreground: #ffffff;
+
+  --negative-1: #4a1c1a;
+  --negative-2: #ff6b6b;
+  --positive-1: #1a3a2a;
+  --positive-2: #4ade80;
+  --warning-1: #3a3015;
+  --warning-2: #fbbf24;
+  --info-1: #1a2a3a;
+  --info-2: #60a5fa;
+
+  --card: #1e1e1e;
+  --card-foreground: var(--neutral-900);
+  --popover: #1e1e1e;
+  --popover-foreground: var(--neutral-900);
+
   --secondary: var(--neutral-0);
-  --secondary-foreground: var(--neutral-900);
-  --muted: var(--neutral-500);
+  --secondary-foreground: #121212;
+  --muted: #252525;
   --muted-foreground: var(--neutral-80);
-  --accent: var(--neutral-500);
-  --accent-foreground: var(--neutral-0);
+  --accent: #252525;
+  --accent-foreground: var(--neutral-900);
   --destructive: var(--negative-2);
   --destructive-foreground: var(--neutral-0);
-  --border: var(--neutral-500);
-  --input: var(--neutral-500);
-  --ring: var(--neutral-30);
+
+  --border: #2e2e2e;
+  --input: #2e2e2e;
+  --input-background: #1e1e1e;
+  --ring: var(--primary);
+
+  --overlay: rgba(0, 0, 0, 0.7);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.5);
 }
 
+/* ═══════════════════════════════════════════
+   WHITE-LABEL PRESET THEMES
+   Apply via class on <html> or a wrapper:
+   <div class="theme-green"> or <div class="theme-purple dark">
+   ═══════════════════════════════════════════ */
+.theme-green {
+  --primary: #16a34a;
+  --primary-foreground: #ffffff;
+}
+.theme-green.dark {
+  --primary: #4ade80;
+  --primary-foreground: #052e16;
+}
+
+.theme-purple {
+  --primary: #7c3aed;
+  --primary-foreground: #ffffff;
+}
+.theme-purple.dark {
+  --primary: #a78bfa;
+  --primary-foreground: #1e1033;
+}
+
+.theme-blue {
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
+}
+.theme-blue.dark {
+  --primary: #60a5fa;
+  --primary-foreground: #0c1a33;
+}
+
+.theme-red {
+  --primary: #dc2626;
+  --primary-foreground: #ffffff;
+}
+.theme-red.dark {
+  --primary: #f87171;
+  --primary-foreground: #2a0a0a;
+}
+
+.theme-pink {
+  --primary: #ec4899;
+  --primary-foreground: #ffffff;
+}
+.theme-pink.dark {
+  --primary: #f472b6;
+  --primary-foreground: #2a0a1e;
+}
+
+/* ═══════════════════════════════════════════
+   TAILWIND THEME TOKENS
+   ═══════════════════════════════════════════ */
 @theme inline {
+  --font-sans: var(--font-family-sans);
+  --font-heading: var(--font-family-heading);
+  --font-mono: var(--font-family-mono);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -95,7 +216,8 @@
   --color-input: var(--input);
   --color-input-background: var(--input-background);
   --color-ring: var(--ring);
-  
+  --color-overlay: var(--overlay);
+
   --color-neutral-0: var(--neutral-0);
   --color-neutral-10: var(--neutral-10);
   --color-neutral-20: var(--neutral-20);
@@ -113,6 +235,14 @@
   --color-negative-2: var(--negative-2);
   --color-positive-1: var(--positive-1);
   --color-positive-2: var(--positive-2);
+  --color-warning-1: var(--warning-1);
+  --color-warning-2: var(--warning-2);
+  --color-info-1: var(--info-1);
+  --color-info-2: var(--info-2);
+
+  --shadow-sm: var(--shadow-sm);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -126,13 +256,13 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
-  /**
-  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
-  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
-  */
+  h1, h2, h3, h4 {
+    font-family: var(--font-family-heading);
+  }
 
   html {
     font-size: var(--font-size);

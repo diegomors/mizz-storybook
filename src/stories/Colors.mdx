@@ -4,107 +4,108 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 # Cores
 
-A paleta de cores do Mizz Design System foi cuidadosamente selecionada para transmitir energia, confiança e modernidade.
+Guia de estilo do aplicativo.
 
-## Cores Primárias
+## Primária
 
 <ColorPalette>
   <ColorItem
-    title="Laranja Mizz"
-    subtitle="Cor principal da marca"
-    colors={{
-      '#ff5c00': 'Laranja',
-    }}
+    title="O300"
+    subtitle="#ff5c00 — rgb(255, 92, 0)"
+    colors={{ 'O300': '#ff5c00' }}
   />
 </ColorPalette>
 
-### Uso da Cor Primária
-
-- Botões principais (CTA)
-- Links e elementos interativos
-- Destaques e ênfases
-- Ícones principais
-
-**Contraste**: 
+**Contraste**:
 - Com preto: 6.78:1 (AAA)
 - Com branco: 3.10:1 (AA)
 
-## Cores Secundárias
+## Neutras
 
 <ColorPalette>
   <ColorItem
-    title="Preto"
-    subtitle="Cor secundária"
-    colors={{
-      '#000000': 'Preto',
-    }}
+    title="B0"
+    subtitle="#ffffff — rgb(255, 255, 255)"
+    colors={{ 'B0': '#ffffff' }}
   />
   <ColorItem
-    title="Branco"
-    subtitle="Cor neutra"
-    colors={{
-      '#ffffff': 'Branco',
-    }}
+    title="B10"
+    subtitle="#fafafa — rgb(250, 250, 250)"
+    colors={{ 'B10': '#fafafa' }}
+  />
+  <ColorItem
+    title="B20"
+    subtitle="#f5f5f5 — rgb(245, 245, 245)"
+    colors={{ 'B20': '#f5f5f5' }}
+  />
+  <ColorItem
+    title="B30"
+    subtitle="#ebebeb — rgb(235, 235, 235)"
+    colors={{ 'B30': '#ebebeb' }}
+  />
+  <ColorItem
+    title="B40"
+    subtitle="#dedede — rgb(222, 222, 222)"
+    colors={{ 'B40': '#dedede' }}
+  />
+  <ColorItem
+    title="B50"
+    subtitle="#bfbfbf — rgb(191, 191, 191)"
+    colors={{ 'B50': '#bfbfbf' }}
+  />
+  <ColorItem
+    title="B60"
+    subtitle="#b0b0b0 — rgb(176, 176, 176)"
+    colors={{ 'B60': '#b0b0b0' }}
+  />
+  <ColorItem
+    title="B70"
+    subtitle="#a3a3a3 — rgb(163, 163, 163)"
+    colors={{ 'B70': '#a3a3a3' }}
+  />
+  <ColorItem
+    title="B80"
+    subtitle="#949494 — rgb(148, 148, 148)"
+    colors={{ 'B80': '#949494' }}
+  />
+  <ColorItem
+    title="B200"
+    subtitle="#666666 — rgb(102, 102, 102)"
+    colors={{ 'B200': '#666666' }}
+  />
+  <ColorItem
+    title="B500"
+    subtitle="#3b3b3b — rgb(59, 59, 59)"
+    colors={{ 'B500': '#3b3b3b' }}
+  />
+  <ColorItem
+    title="B900"
+    subtitle="#000000 — rgb(0, 0, 0)"
+    colors={{ 'B900': '#000000' }}
   />
 </ColorPalette>
 
-## Cores Semânticas
+## Semânticas
 
 <ColorPalette>
   <ColorItem
-    title="Negativos"
-    subtitle="Estados de erro e alerta"
-    colors={{
-      '#ff8585': 'Negativo 1',
-      '#ff4949': 'Negativo 2',
-    }}
+    title="Negativo 1"
+    subtitle="#ffdad6 — rgb(255, 218, 214)"
+    colors={{ 'Negativo 1': '#ffdad6' }}
   />
   <ColorItem
-    title="Positivos"
-    subtitle="Estados de sucesso"
-    colors={{
-      '#85ff85': 'Positivo 1',
-      '#00d68f': 'Positivo 2',
-    }}
+    title="Negativo 2"
+    subtitle="#ff5449 — rgb(255, 84, 73)"
+    colors={{ 'Negativo 2': '#ff5449' }}
   />
-</ColorPalette>
-
-## Cores Neutras
-
-<ColorPalette>
   <ColorItem
-    title="Escala de Cinzas"
-    subtitle="Backgrounds e textos secundários"
-    colors={{
-      '#ffffff': 'B0',
-      '#f5f5f5': 'B10',
-      '#e0e0e0': 'B20',
-      '#cccccc': 'B30',
-      '#b3b3b3': 'B40',
-      '#999999': 'B50',
-      '#808080': 'B60',
-      '#666666': 'B70',
-      '#4d4d4d': 'B80',
-      '#333333': 'B200',
-      '#1a1a1a': 'B500',
-      '#000000': 'B900',
-    }}
+    title="Positivo 1"
+    subtitle="#e6faf1 — rgb(230, 250, 241)"
+    colors={{ 'Positivo 1': '#e6faf1' }}
+  />
+  <ColorItem
+    title="Positivo 2"
+    subtitle="#00ca75 — rgb(0, 202, 117)"
+    colors={{ 'Positivo 2': '#00ca75' }}
   />
 </ColorPalette>
-
-## Acessibilidade
-
-Todas as combinações de cores seguem as diretrizes WCAG 2.1:
-
-- **AAA**: Contraste mínimo de 7:1 para texto normal
-- **AA**: Contraste mínimo de 4.5:1 para texto normal
-- **AA Large**: Contraste mínimo de 3:1 para texto grande
-
-### Exemplos de Combinações Acessíveis
-
-| Fundo | Texto | Contraste | Nível |
-|-------|-------|-----------|-------|
-| #ff5c00 | #000000 | 6.78:1 | AAA |
-| #ff5c00 | #ffffff | 3.10:1 | AA |
-| #000000 | #ffffff | 21:1 | AAA |
-| #ffffff | #000000 | 21:1 | AAA |
