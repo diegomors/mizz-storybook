@@ -111,7 +111,7 @@ export const MizzDialog = ({
       role="presentation"
     >
       {/* Backdrop */}
-      <div className="absolute inset-0 bg-black/50" aria-hidden="true" />
+      <div className="absolute inset-0 bg-overlay" aria-hidden="true" />
 
       {/* Dialog */}
       <div
@@ -120,7 +120,7 @@ export const MizzDialog = ({
         aria-modal="true"
         aria-label={title}
         className={cn(
-          'relative w-full rounded-2xl bg-white shadow-xl',
+          'relative w-full rounded-2xl bg-card shadow-xl',
           'animate-in fade-in zoom-in-95 duration-200',
           sizeStyles[size],
           className
@@ -129,7 +129,7 @@ export const MizzDialog = ({
         {/* Header */}
         {title && (
           <div className="flex items-center justify-between px-6 pt-6 pb-2">
-            <h2 className="text-lg font-medium text-neutral-900">{title}</h2>
+            <h2 className="text-lg font-medium text-card-foreground">{title}</h2>
             <button
               type="button"
               className="p-1 rounded-full hover:bg-neutral-20 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
@@ -144,7 +144,7 @@ export const MizzDialog = ({
         )}
 
         {/* Content */}
-        <div className="px-6 py-4 text-sm text-neutral-500">{children}</div>
+        <div className="px-6 py-4 text-sm text-muted-foreground">{children}</div>
 
         {/* Actions */}
         {actions && (
