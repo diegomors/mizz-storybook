@@ -1,4 +1,4 @@
-import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from 'react';
+import { forwardRef, useCallback, type ButtonHTMLAttributes, type MouseEvent, type ReactNode } from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '../ui/utils';
 
@@ -37,24 +37,53 @@ export interface MizzButtonProps
   startIcon?: ReactNode;
   /** Ícone a ser exibido depois do conteúdo */
   endIcon?: ReactNode;
+  /** Exibe spinner de carregamento e impede cliques duplicados */
+  loading?: boolean;
 }
 
 /**
  * MizzButton - Componente de botão do Design System Mizz.
  * Configurações: filled (padrão), outlined e text.
- * Estados: enabled, focused, pressed, disabled.
+ * Estados: enabled, focused, pressed, disabled, loading.
+ * Quando loading=true, o botão fica desabilitado e exibe um spinner,
+ * impedindo cliques duplicados.
  */
 const MizzButton = forwardRef<HTMLButtonElement, MizzButtonProps>(
-  ({ className, variant, size, startIcon, endIcon, children, ...props }, ref) => {
+  ({ className, variant, size, startIcon, endIcon, loading, disabled, onClick, children, ...props }, ref) => {
+    const isDisabled = disabled || loading;
+
+    const handleClick = useCallback(
+      (e: MouseEvent<HTMLButtonElement>) => {
+        if (isDisabled) {
+          e.preventDefault();
+          return;
+        }
+        onClick?.(e);
+      },
+      [isDisabled, onClick]
+    );
+
     return (
       <button
         className={cn(mizzButtonVariants({ variant, size, className }))}
         ref={ref}
+        disabled={isDisabled}
+        aria-disabled={isDisabled}
+        aria-busy={loading}
+        onClick={handleClick}
         {...props}
       >
-        {startIcon && <span className="flex items-center" aria-hidden="true">{startIcon}</span>}
+        {loading && (
+          <span className="flex items-center animate-spin" aria-hidden="true">
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+            </svg>
+          </span>
+        )}
+        {!loading && startIcon && <span className="flex items-center" aria-hidden="true">{startIcon}</span>}
         <span>{children}</span>
-        {endIcon && <span className="flex items-center" aria-hidden="true">{endIcon}</span>}
+        {!loading && endIcon && <span className="flex items-center" aria-hidden="true">{endIcon}</span>}
       </button>
     );
   }

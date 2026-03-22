@@ -24,6 +24,10 @@ const meta = {
       control: 'boolean',
       description: 'Estado desabilitado',
     },
+    loading: {
+      control: 'boolean',
+      description: 'Estado de carregamento (impede cliques duplicados)',
+    },
   },
 } satisfies Meta<typeof MizzButton>;
 
@@ -122,6 +126,42 @@ export const ShowIcon: Story = {
       <div>
         <p className="text-sm text-neutral-500 mb-4">true</p>
         <MizzButton variant="filled" startIcon={<Star size={18} />}>Enabled</MizzButton>
+      </div>
+    </div>
+  ),
+};
+
+export const Loading: Story = {
+  args: {
+    children: 'Salvando...',
+    variant: 'filled',
+    loading: true,
+  },
+};
+
+export const AllStatesWithLoading: Story = {
+  name: 'State (com loading)',
+  render: () => (
+    <div className="flex flex-col gap-8 p-8">
+      <div>
+        <p className="text-sm text-neutral-500 mb-4">enabled</p>
+        <MizzButton variant="filled">Enabled</MizzButton>
+      </div>
+      <div>
+        <p className="text-sm text-neutral-500 mb-4">disabled</p>
+        <MizzButton variant="filled" disabled>Disabled</MizzButton>
+      </div>
+      <div>
+        <p className="text-sm text-neutral-500 mb-4">loading (impede cliques duplicados)</p>
+        <MizzButton variant="filled" loading>Salvando...</MizzButton>
+      </div>
+      <div>
+        <p className="text-sm text-neutral-500 mb-4">loading outlined</p>
+        <MizzButton variant="outlined" loading>Carregando...</MizzButton>
+      </div>
+      <div>
+        <p className="text-sm text-neutral-500 mb-4">loading text</p>
+        <MizzButton variant="text" loading>Aguarde...</MizzButton>
       </div>
     </div>
   ),
