@@ -160,7 +160,8 @@ export const MizzHighlight = ({
   weight = 'medium',
   className,
 }: MizzHighlightProps) => {
-  const colorStyle = highlightColorMap[color][variant];
+  const variantKey = variant === 'background' ? 'bg' : variant;
+  const colorStyle = highlightColorMap[color][variantKey];
   const weightStyle = weight === 'bold' ? 'font-bold' : weight === 'medium' ? 'font-medium' : 'font-normal';
 
   return (
